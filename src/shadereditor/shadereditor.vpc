@@ -355,6 +355,7 @@ $Project "$OUTBINNAME"
 		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\tier1"
 		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\tier2"
 		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\tier3"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\interfaces" [$TARGET_PLATFORM_SWARM]
 		$Lib	"$SRCDIR\lib\public\vgui_controls_editor_$TARGET_PLATFORM"
 		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\steam_api"
 		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\vtf"
