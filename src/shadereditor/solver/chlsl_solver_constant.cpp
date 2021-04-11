@@ -122,7 +122,7 @@ void CHLSL_Solver_Random::OnVarInit( const WriteContext_FXC &context )
 	//GetHash( _hash, MAX_PATH );
 	//Q_snprintf( tmp, MAXTARGC, "g_cData_Random%s", _hash );
 	HNODE nodeIndex = GetData().iNodeIndex;
-	Q_snprintf( tmp, MAXTARGC, "g_cData_Random%u", nodeIndex );
+	Q_snprintf( tmp, MAXTARGC, "g_cData_Random%u", static_cast<unsigned>(nodeIndex) );
 
 	target->SetName( tmp, true );
 }
@@ -152,7 +152,7 @@ void CHLSL_Solver_Random::OnIdentifierAlloc( IdentifierLists_t &List )
 	//GetHash( _hash, MAX_PATH );
 	//Q_snprintf( tmp, MAXTARGC, "Random%s", _hash );
 	HNODE nodeIndex = GetData().iNodeIndex;
-	Q_snprintf( tmp, MAXTARGC, "Random%u", nodeIndex );
+	Q_snprintf( tmp, MAXTARGC, "Random%u", static_cast<unsigned>(nodeIndex) );
 
 	ec->szSmartHelper = new char[ Q_strlen(tmp) + 1 ];
 	Q_strcpy( ec->szSmartHelper, tmp );

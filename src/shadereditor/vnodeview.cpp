@@ -13,19 +13,19 @@
 #include <vgui_controls/propertypage.h>
 
 #include "materialsystem/imesh.h"
-#include "materialsystem/ITexture.h"
-#include "materialsystem/IMaterial.h"
-#include "materialsystem/IMaterialVar.h"
+#include "materialsystem/itexture.h"
+#include "materialsystem/imaterial.h"
+#include "materialsystem/imaterialvar.h"
 #include "materialsystem/imaterialsystem.h"
 
 #include "collisionutils.h"
 #include "vgui_controls/animationcontroller.h"
 
-#include "editorCommon.h"
-#include "vNodeView.h"
-#include "vSmartObject.h"
-#include "vSmartTooltip.h"
-#include "vSheets.h"
+#include "editorcommon.h"
+#include "vnodeview.h"
+#include "vsmartobject.h"
+#include "vsmarttooltip.h"
+#include "vsheets.h"
 
 //#include "memtrack.h"
 

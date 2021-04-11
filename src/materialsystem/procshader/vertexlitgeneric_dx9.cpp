@@ -6,7 +6,7 @@
 // $NoKeywords: $
 //=====================================================================================//
 
-#include "BaseVSShader.h"
+#include "basevsshader.h"
 #include "vertexlitgeneric_dx9_helper.h"
 
 BEGIN_VS_SHADER( SDK_VertexLitGeneric, "Help for SDK_VertexLitGeneric" )

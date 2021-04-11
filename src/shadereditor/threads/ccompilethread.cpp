@@ -1,11 +1,13 @@
 
 #include "cbase.h"
-#include "editorCommon.h"
+#include "editorcommon.h"
 
+#ifdef _WIN32
 #include <windows.h>
-#include <stdio.h>
 #include <tchar.h>
 #include <direct.h>
+#endif
+#include <stdio.h>
 
 #define COMPILE_FRENZY 0
 #if COMPILE_FRENZY
@@ -463,6 +465,7 @@ int CCompileThread::Run()
 		}
 		Sleep( 1 );
 	}
+	return 0;
 }
 
 void CCompileThread::WriteFXCFile_VS(bool bPosOverride, CUtlBufferEditor *codeBuff)
@@ -721,7 +724,7 @@ void CCompileThread::WriteCommon( bool bPS, CUtlBufferEditor &buf, CUtlVector< C
 		SimpleArray *pArray = Context.m_pActive_Identifiers->hList_Arrays[i];
 		const bool bIs2D = pArray->iSize_Y > 1;
 		const char *szDataType = ::GetVarTypeNameCode( pArray->iNumComps );
-		Q_snprintf( tmp, sizeof( tmp ), "static const %s g_cArray_%i", szDataType, pArray->iIndex );
+		Q_snprintf( tmp, sizeof( tmp ), "static const %s g_cArray_%i", szDataType, static_cast<int>(pArray->iIndex) );
 		if ( bIs2D )
 			Q_snprintf( szAppend, sizeof( szAppend ), "[%i][%i] =\n", pArray->iSize_X, pArray->iSize_Y );
 		else
@@ -1005,6 +1008,7 @@ HANDLE g_hChildStd_OUT_Wr = NULL;
 
 bool CCompileThread::StartCompiler()
 {
+#ifdef _WIN32
 	ForceTerminateCompilers();
 
 	char old_wd[MAX_PATH];
@@ -1135,4 +1139,8 @@ bool CCompileThread::StartCompiler()
 
 	//chdir( old_wd );
 	return true;
+#else // POSIX
+	Msg("[SSE]: Compiling is not possible on Posix!\n");
+	return false;
+#endif // POSIX
 }

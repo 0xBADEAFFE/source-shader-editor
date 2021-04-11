@@ -3,18 +3,18 @@
 #include <vgui/IPanel.h>
 #include "vgui/ISurface.h"
 #include "ienginevgui.h"
-#include <vgui_controls/button.h>
-#include <vgui_controls/textentry.h>
-#include <vgui_controls/richtext.h>
+#include <vgui_controls/Button.h>
+#include <vgui_controls/TextEntry.h>
+#include <vgui_controls/RichText.h>
 
 #include "materialsystem/imesh.h"
-#include "materialsystem/ITexture.h"
-#include "materialsystem/IMaterial.h"
-#include "materialsystem/IMaterialVar.h"
+#include "materialsystem/itexture.h"
+#include "materialsystem/imaterial.h"
+#include "materialsystem/imaterialvar.h"
 #include "materialsystem/imaterialsystem.h"
 
 #include "editorcommon.h"
-#include "vBaseNode.h"
+#include "vbasenode.h"
 
 HNODE CBaseNode::m_iUniqueIndexCount = HNODE(0);
 

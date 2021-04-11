@@ -5,7 +5,7 @@
 #include "fallback_vs20.inc"
 #include "fallback_ps20.inc"
 
-#include "../ProcShaderInterface.h"
+#include "../procshaderinterface.h"
 #include "cpp_shader_constant_register_map.h"
 
 #ifdef SHADER_EDITOR_DLL_2006

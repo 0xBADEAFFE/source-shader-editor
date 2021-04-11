@@ -32,12 +32,12 @@
 #include <vgui/IVGui.h>
 #include <vgui/ISurface.h>
 
-#include <vgui_controls/BuildGroup.h>
-#include <vgui_controls/Panel.h>
-#include <vgui_controls/PHandle.h>
-#include <vgui_controls/Label.h>
-#include <vgui_controls/EditablePanel.h>
-#include <vgui_controls/MessageBox.h>
+#include <vgui_controls/buildgroup.h>
+#include <vgui_controls/panel.h>
+#include <vgui_controls/phandle.h>
+#include <vgui_controls/label.h>
+#include <vgui_controls/editablepanel.h>
+#include <vgui_controls/messagebox.h>
 #include "filesystem.h"
 
 #if defined( _X360 )
@@ -1348,9 +1348,9 @@ void BuildGroup::GetSettings( KeyValues *resourceData )
 		// do not get setting for ruler labels.
 		if (_showRulers) // rulers are visible
 		{
-			for (int i = 0; i < 4; i++)
+			for (int j = 0; j < 4; j++)
 			{
-				if (panel == _rulerNumber[i])
+				if (panel == _rulerNumber[j])
 				{
 					isRuler = true;
 					break;

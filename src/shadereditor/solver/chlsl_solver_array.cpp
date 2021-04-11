@@ -47,7 +47,7 @@ void CHLSL_Solver_Array::OnVarInit_PostStep()
 
 	CHLSL_Var *target = GetTargetVar( 0 );
 	char tmp[MAXTARGC];
-	Q_snprintf( tmp, sizeof( tmp ), "g_cArray_%i[%s]", GetData().iNodeIndex, src_0->GetName() );
+	Q_snprintf( tmp, sizeof( tmp ), "g_cArray_%i[%s]", static_cast<int>(GetData().iNodeIndex), src_0->GetName() );
 	if ( src_1 != NULL )
 	{
 		char szAppend[MAX_PATH];

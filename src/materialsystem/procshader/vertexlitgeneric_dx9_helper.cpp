@@ -5,7 +5,7 @@
 // $NoKeywords: $
 //
 //===========================================================================//
-#include "basevsshader.h"
+#include "basevshader.h"
 #include "vertexlitgeneric_dx9_helper.h"
 
 #include "SDK_vertexlit_and_unlit_generic_vs20.inc"

@@ -5,8 +5,8 @@
 
 #include "steam/steam_api.h"
 #include "datacache/idatacache.h"
-#include "engine/ienginesound.h"
-#include "igameuifuncs.h"
+#include "engine/IEngineSound.h"
+#include "IGameUIFuncs.h"
 #include "inputsystem/iinputsystem.h"
 #include "client_factorylist.h"
 //#include "initializer.h"
@@ -52,9 +52,9 @@ CGlobalVarsBase *gpGlobals = &dummyvars;
 
 
 
-#include "EditorInit.h"
+#include "editorinit.h"
 #include "editorcommon.h"
-#include "IVProcShader.h"
+#include "ivprocshader.h"
 
 CSysModule *ProcShaderModule = NULL;
 IVProcShader *gProcShaderCTRL = NULL;
@@ -157,16 +157,16 @@ bool ShaderEditorInterface::Init( CreateInterfaceFn appSystemFactory, CGlobalVar
 		return false;
 
 #ifdef SHADER_EDITOR_DLL_SWARM
-	const char *pszModuleName = "game_shader_generic_eshader_SWARM.dll";
+	const char *pszModuleName = "game_shader_generic_eshader_SWARM" DLL_EXT_STRING;
 #elif SHADER_EDITOR_DLL_2006
-	const char *pszModuleName = "game_shader_generic_eshader_2006.dll";
+	const char *pszModuleName = "game_shader_generic_eshader_2006" DLL_EXT_STRING;
 #elif SHADER_EDITOR_DLL_2013
-	//const char *pszModuleName = "game_shader_generic_eshader_2013.dll";
-	const char *pszModuleName = "game_shader_dx6.dll";
+	//const char *pszModuleName = "game_shader_generic_eshader_2013" DLL_EXT_STRING;
+	const char *pszModuleName = "game_shader_dx6" DLL_EXT_STRING;
 #elif SHADER_EDITOR_DLL_PORTAL2
-	const char *pszModuleName = "game_shader_generic_eshader_PORTAL2.dll";
+	const char *pszModuleName = "game_shader_generic_eshader_PORTAL2" DLL_EXT_STRING;
 #else
-	const char *pszModuleName = "game_shader_generic_eshader_2007.dll";
+	const char *pszModuleName = "game_shader_generic_eshader_2007" DLL_EXT_STRING;
 #endif
 
 	char modulePath[MAX_PATH];

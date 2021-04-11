@@ -1,10 +1,10 @@
 
 #include "cbase.h"
-#include "cRegex.h"
-#include "vSmartObject.h"
-#include "vSmartObjectList.h"
+#include "cregex.h"
+#include "vsmartobject.h"
+#include "vsmartobjectlist.h"
 
-#include "editorCommon.h"
+#include "editorcommon.h"
 
 #define __DBG_PARSE DEBUG
 

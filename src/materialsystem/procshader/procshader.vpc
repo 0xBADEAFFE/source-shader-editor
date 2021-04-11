@@ -4,18 +4,16 @@
 //  Project Script
 //-----------------------------------------------------------------------------
 
-$Macro SRCDIR				"..\.."
+$Macro SRCDIR "..\.."
+$Macro OUTBINNAME "game_shader_dx6"
+$Macro OUTBINDIR "$TARGET_GAME_DIRECTORY\bin"
+
+$Macro GAMENAME "procshader"
+$Macro SRCDIRPUBLIC "$TARGET_SRC_DIRECTORY\public"
+$Macro SRCDIRMATERIALSYSTEM "$SRCDIR\materialsystem"
+$Macro SRCDIRPROCSHADER "$SRCDIR\materialsystem\procshader"
 
 $Include "$SRCDIR\shadereditor_platform.vpc"
-
-$Macro OUTBINNAME	"game_shader_dx6"
-$Macro OUTBINDIR	"$TARGET_GAME_DIRECTORY\bin"
-
-$Macro GAMENAME				"procshader"
-$Macro SRCDIRPUBLIC			"$TARGET_SRC_DIRECTORY\public"
-$Macro SRCDIRMATERIALSYSTEM	"$SRCDIR\materialsystem"
-$Macro SRCDIRPROCSHADER		"$SRCDIR\materialsystem\procshader"
-
 $Include "$SRCDIR\vpc_scripts\source_dll_base.vpc"
 
 $Configuration	"Debug"
@@ -45,7 +43,7 @@ $Configuration
 	
 	$Compiler
 	{
-		$AdditionalIncludeDirectories	"$BASE;fxctmp9;vshtmp9;"	[$WIN32||$POSIX]
+		$AdditionalIncludeDirectories	"$BASE;fxctmp9;vshtmp9" [$WIN32||$POSIX]
 //		$AdditionalIncludeDirectories	"$BASE;..\..\dx9sdk\include"	[$WIN32]
 		$AdditionalIncludeDirectories	"$BASE;fxctmp9_360;vshtmp9_360"					[$X360]
 		$AdditionalIncludeDirectories	"$BASE;$SRCDIRMATERIALSYSTEM;$SRCDIR\..\client\shadereditor"
@@ -59,7 +57,7 @@ $Configuration
 
 	$Linker
 	{
-		$AdditionalDependencies			"$BASE version.lib winmm.lib"	[$WIN32]
+		$AdditionalDependencies			"$BASE version.lib winmm.lib" [$WIN32]
 		$SystemLibraries				"iconv" [$OSXALL]
 	}
 }
@@ -68,7 +66,7 @@ $Configuration "Debug"
 {
 	$Linker
 	{
-		$AdditionalDependencies			"$BASE Dbghelp.lib"	[$WIN32]
+		$AdditionalDependencies			"$BASE Dbghelp.lib" [$WIN32]
 	}
 }
 
@@ -90,10 +88,10 @@ $Project "$OUTBINNAME"
 
 	$Folder	"Link Libraries"
 	{
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\mathlib.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\shaderlib.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\tier0.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\tier1.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\vstdlib.lib"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\mathlib"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\shaderlib"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\tier0"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\tier1"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\vstdlib"
 	}
 }

@@ -14,14 +14,14 @@
 #include "vgui/IScheme.h"
 #include "vgui/KeyCode.h"
 
-#include "vgui_controls/AnimationController.h"
-#include "vgui_controls/Controls.h"
-#include "vgui_controls/Frame.h"
-#include "vgui_controls/Button.h"
-#include "vgui_controls/Menu.h"
-#include "vgui_controls/MenuButton.h"
-#include "vgui_controls/TextImage.h"
-#include "vgui_controls/ColorPicker.h"
+#include "vgui_controls/animationcontroller.h"
+#include "vgui_controls/controls.h"
+#include "vgui_controls/frame.h"
+#include "vgui_controls/button.h"
+#include "vgui_controls/menu.h"
+#include "vgui_controls/menubutton.h"
+#include "vgui_controls/textimage.h"
+#include "vgui_controls/colorpicker.h"
 
 #include "KeyValues.h"
 

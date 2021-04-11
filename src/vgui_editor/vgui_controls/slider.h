@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -13,7 +13,7 @@
 #endif
 
 #include <vgui/VGUI.h>
-#include <vgui_controls/Panel.h>
+#include <vgui_controls/panel.h>
 
 namespace vgui
 {
@@ -69,6 +69,9 @@ protected:
 	virtual void GetSettings(KeyValues *outResourceData);
 	virtual void ApplySettings(KeyValues *inResourceData);
 	virtual const char *GetDescription();
+#ifdef _X360
+	virtual void OnKeyCodePressed(KeyCode code);
+#endif
 	virtual void OnKeyCodeTyped(KeyCode code);
 
 	virtual void DrawNob();
@@ -85,6 +88,7 @@ protected:
 	virtual void SendSliderDragStartMessage();
 	virtual void SendSliderDragEndMessage();
 
+	void ClampRange();
 	bool _dragging;
 	int _nobPos[2];
 	int _nobDragStartPos[2];
@@ -104,6 +108,9 @@ protected:
 	Color m_TrackColor;
 	Color m_DisabledTextColor1;
 	Color m_DisabledTextColor2;
+#ifdef _X360
+	Color m_DepressedBgColor;
+#endif
 
 	int		m_nNumTicks;
 	bool	m_bIsDragOnRepositionNob : 1;

@@ -14,8 +14,8 @@
 #endif
 
 #include "shaderlib/cshader.h"
-#include "shaderlib/baseshader.h"
-#include "ConVar.h"
+#include "shaderlib/BaseShader.h"
+#include "convar.h"
 #include <renderparm.h>
 
 #ifdef _X360

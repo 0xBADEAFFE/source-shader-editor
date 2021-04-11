@@ -11,7 +11,7 @@
 #include "mathlib/vmatrix.h"
 #include "mathlib/bumpvects.h"
 #include "cpp_shader_constant_register_map.h"
-#include "ConVar.h"
+#include "convar.h"
 
 #ifdef HDR
 #include "SDK_vertexlit_and_unlit_generic_hdr_ps20.inc"
@@ -30,13 +30,13 @@
 #include "SDK_flashlight_ps20.inc"
 #include "SDK_flashlight_ps20b.inc"
 #endif
-#include "SDK_unlitgeneric_vs11.inc"
+#include "SDK_UnlitGeneric_vs11.inc"
 #include "SDK_VertexLitGeneric_EnvmappedBumpmap_NoLighting_ps14.inc"
 #include "SDK_VertexLitGeneric_EnvmappedBumpmap_NoLighting.inc"
 #include "SDK_vertexlitgeneric_flashlight_vs11.inc"
-#include "SDK_lightmappedgeneric_basetexture.inc"
-#include "SDK_lightmappedGeneric_bumpmappedlightmap_base_ps14.inc"
-#include "SDK_lightmappedGeneric_bumpmappedlightmap_blend_ps14.inc"
+#include "SDK_LightmappedGeneric_BaseTexture.inc"
+#include "SDK_LightmappedGeneric_BumpmappedLightmap_Base_ps14.inc"
+#include "SDK_LightmappedGeneric_BumpmappedLightmap_Blend_ps14.inc"
 #include "SDK_lightmappedgeneric_bumpmappedenvmap_ps14.inc"
 #include "SDK_lightmappedgeneric_bumpmappedenvmap.inc"
 #include "SDK_lightmappedgeneric_basetextureblend.inc"

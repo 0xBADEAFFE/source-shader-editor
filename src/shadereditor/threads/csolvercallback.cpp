@@ -1,6 +1,6 @@
 
 #include "cbase.h"
-#include "editorCommon.h"
+#include "editorcommon.h"
 
 //#include <Windows.h>
 
@@ -46,7 +46,7 @@ CAutoSolverCallback *CAutoSolverCallback::GetSolverClientByIdx( HAUTOSOLVER idx 
 	return NULL;
 }
 
-#include "IVProcShader.h"
+#include "ivprocshader.h"
 
 void CAutoSolverCallback::Update3DPrevMaterial( GenericShaderData *data, const int index )
 {

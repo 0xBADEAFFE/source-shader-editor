@@ -1,7 +1,7 @@
 #ifndef PROCSHADER_INTERFACE_H
 #define PROCSHADER_INTERFACE_H
 
-#include "IVProcShader.h"
+#include "ivprocshader.h"
 #include "filesystem.h"
 #include "vstdlib/random.h"
 #include "tier1/KeyValues.h"

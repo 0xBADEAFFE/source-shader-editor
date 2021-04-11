@@ -4,18 +4,17 @@
 //	Project Script
 //-----------------------------------------------------------------------------
 
-$Macro SRCDIR				".."
-
-$Include "$SRCDIR\shadereditor_platform.vpc"
+$Macro SRCDIR		".."
+$Macro GAMENAME		"shader_editor"
 
 $Macro OUTBINNAME	"shadereditor_$TARGET_PLATFORM"
 $Macro OUTBINDIR	"$TARGET_GAME_DIRECTORY\bin"
 
-$Macro GAMENAME				"shader_editor"
 $Macro SRCDIRSHARED			"$SRCDIR\game\shared"
 $Macro SRCDIRPUBLIC			"$TARGET_SRC_DIRECTORY\public"
 $Macro SRCDIREDITOR			"$SRCDIR\shadereditor"
 
+$Include "$SRCDIR\shadereditor_platform.vpc"
 $Include "$SRCDIR\vpc_scripts\source_dll_base.vpc"
 
 $Configuration	"Debug"
@@ -70,7 +69,7 @@ $Configuration
 		$SystemFrameworks				"Carbon" [$OSXALL]
 		$SystemLibraries				"rt" [$LINUXALL]
 		$IgnoreImportLibrary			"TRUE"
-		$AdditionalDependencies			"$BASE winmm.lib"	[$WIN32]
+		$AdditionalDependencies			"$BASE winmm.lib" [$WIN32]
 		$AdditionalDependencies			"$BASE wsock32.lib Ws2_32.lib" [$BUILD_REPLAY]
 	}
 }
@@ -347,18 +346,18 @@ $Project "$OUTBINNAME"
 
 	$Folder	"Link Libraries"
 	{
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\bitmap.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\choreoobjects.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\dmxloader.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\mathlib.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\matsys_controls.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\particles.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\tier1.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\tier2.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\tier3.lib"
-		$DynamicFile	"$SRCDIR\lib\public\vgui_controls_editor_$TARGET_PLATFORM.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\steam_api.lib"
-		$DynamicFile	"$TARGET_SRC_DIRECTORY\lib\public\vtf.lib"
-		$DynamicFile	"$SRCDIR\lib\public\jpeglib.lib"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\bitmap"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\choreoobjects"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\dmxloader"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\mathlib"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\matsys_controls"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\particles"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\tier1"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\tier2"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\tier3"
+		$Lib	"$SRCDIR\lib\public\vgui_controls_editor_$TARGET_PLATFORM"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\steam_api"
+		$Lib	"$TARGET_SRC_DIRECTORY\lib\public\vtf"
+		$Lib	"$SRCDIR\lib\public\jpeglib"
 	}
 }

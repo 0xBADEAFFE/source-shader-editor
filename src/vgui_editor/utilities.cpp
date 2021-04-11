@@ -1,7 +1,8 @@
-
-#include <vgui_controls\Utilities.h>
-
+#include <vgui_controls/utilities.h>
 #include "vgui_editor_platform.h"
+
+// memdbgon must be the last include file in a .cpp file!!!
+#include "tier0/memdbgon.h"
 
 static char hexLookup[16] =
 {
@@ -175,7 +176,7 @@ void SetupVguiTex( int &var, const char *tex )
 
 
 
-inline int GetChannelNumFromChar( const char *c )
+/*inline*/ int GetChannelNumFromChar( const char *c )
 {
 	switch ( *c )
 	{
@@ -206,7 +207,8 @@ inline int GetChannelNumFromChar( const char *c )
 	}
 	return -1;
 }
-inline char GetCharFromChannelNum( const int i )
+
+/*inline*/ char GetCharFromChannelNum( const int i )
 {
 	switch (i)
 	{

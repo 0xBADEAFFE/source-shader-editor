@@ -16,7 +16,7 @@
 #include "mathlib/vector.h"
 #endif
 #include <shareddefs.h>
-#include "materialsystem/materialsystemutil.h"
+#include "materialsystem/MaterialSystemUtil.h"
 #include "cmodel.h"
 #include "utlvector.h"
 #include "engine/IEngineTrace.h"

@@ -1,13 +1,13 @@
 
 #include "cbase.h"
 
-#include "vSmartObject.h"
-#include "vSmartObjectList.h"
-#include "vSmartAutocomplete.h"
-#include "vSmartTooltip.h"
-#include "cRegex.h"
+#include "vsmartobject.h"
+#include "vsmartobjectlist.h"
+#include "vsmartautocomplete.h"
+#include "vsmarttooltip.h"
+#include "cregex.h"
 
-#include "vgui/iinput.h"
+#include "vgui/IInput.h"
 #include <vgui_controls/menuitem.h>
 
 

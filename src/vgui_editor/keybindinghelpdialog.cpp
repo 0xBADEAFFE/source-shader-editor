@@ -1,10 +1,10 @@
-//====== Copyright © 1996-2005, Valve Corporation, All rights reserved. =======
+//========= Copyright Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
 //=============================================================================
 #include "vgui_controls/KeyBindingHelpDialog.h"
-#include "vgui_controls/ListPanel.h"
+#include "vgui_controls/listpanel.h"
 #include "vgui/ISurface.h"
 #include "vgui/IVGui.h"
 #include "vgui/ILocalize.h"
@@ -12,8 +12,11 @@
 #include "vgui/ISystem.h"
 #include "KeyValues.h"
 #include "vgui/Cursor.h"
-#include "tier1/UtlDict.h"
+#include "tier1/utldict.h"
 #include "vgui_controls/KeyBoardEditorDialog.h"
+
+// memdbgon must be the last include file in a .cpp file!!!
+#include "tier0/memdbgon.h"
 
 using namespace vgui;
 
@@ -244,7 +247,7 @@ void CKeyBindingHelpDialog::PopulateList()
 			}
 			if ( k == c )
 			{
-				int k = maps.AddToTail( );
+				k = maps.AddToTail( );
 				maps[k].m_pMap = map;
 				maps[k].m_pPanel = pPanel;
 			}

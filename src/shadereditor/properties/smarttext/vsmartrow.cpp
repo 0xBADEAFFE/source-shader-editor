@@ -1,7 +1,7 @@
 
 #include "cbase.h"
-#include "vSmartRow.h"
-#include "cRegex.h"
+#include "vsmartrow.h"
+#include "cregex.h"
 
 
 #define __ROWCALC_INTRO( x ) int iLastsplit = 0;\

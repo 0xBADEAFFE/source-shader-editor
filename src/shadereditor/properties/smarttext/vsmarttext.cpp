@@ -1,12 +1,12 @@
 
 #include "cbase.h"
-#include "vSmartText.h"
-#include "vSmartObject.h"
-#include "vSmartObjectList.h"
-#include "vSmartAutocomplete.h"
-#include "vSmartTooltip.h"
+#include "vsmarttext.h"
+#include "vsmartobject.h"
+#include "vsmartobjectlist.h"
+#include "vsmartautocomplete.h"
+#include "vsmarttooltip.h"
 #include "vgui_controls/menuitem.h"
-#include "cRegex.h"
+#include "cregex.h"
 #include <ctype.h>
 
 //#define UCHAR_MDOT L'\x00B7'
@@ -252,8 +252,12 @@ void CParserHelper::Shutdown()
 		ParserThreadCmd_Request *pR = new ParserThreadCmd_Request();
 		pR->flags = PARSERREQUEST_STOPTHREAD;
 		ParserThread.m_QueueParse.QueueMessage( pR );
-
+		//NOTE: ThreadSetAffinity
+#ifdef _WIN32
 		VCRHook_WaitForSingleObject( ParserThread.GetThreadHandle(), TT_INFINITE );
+#else // POSIX
+		VCRHook_WaitForSingleObject( ParserThread.GetThreadId(), TT_INFINITE );
+#endif // POSIX
 	}
 }
 

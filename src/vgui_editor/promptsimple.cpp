@@ -6,14 +6,15 @@
 #include <vgui/KeyCode.h>
 #include <KeyValues.h>
 
-#include <vgui_controls/MenuBar.h>
-#include <vgui_controls/MenuButton.h>
-#include <vgui_controls/Label.h>
-#include <vgui_controls/Controls.h>
+#include <vgui_controls/menubar.h>
+#include <vgui_controls/menubutton.h>
+#include <vgui_controls/label.h>
+#include <vgui_controls/controls.h>
 #include <vgui_controls/promptsimple.h>
 
 #include "vgui_editor_platform.h"
 
+// memdbgon must be the last include file in a .cpp file!!!
 #include <tier0/memdbgon.h>
 
 using namespace vgui;

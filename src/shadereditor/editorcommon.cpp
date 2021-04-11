@@ -2252,5 +2252,5 @@ void BuildUserFunctionName( const char *pFunctionName, const CUtlVector< __funcP
 
 void BuildDefaultFunctionName( char *pszDest, int buflen, CBaseNode *pNode )
 {
-	Q_snprintf( pszDest, buflen, "UserFunction_%u", pNode->GetUniqueIndex() );
+	Q_snprintf( pszDest, buflen, "UserFunction_%u", static_cast<unsigned>(pNode->GetUniqueIndex()) );
 }

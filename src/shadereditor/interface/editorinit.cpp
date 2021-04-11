@@ -1,6 +1,6 @@
 
 #include "cbase.h"
-#include "vgui/isystem.h"
+#include "vgui/ISystem.h"
 
 void EngineCopy( const char *a, const char *b )
 {
@@ -16,21 +16,22 @@ float GetEditorTime()
 	return g_pVGuiSystem->GetCurrentTime();
 }
 
-#include <windows.h>
 #include "EditorInit.h"
 #include "editorcommon.h"
-
-#include <tlhelp32.h>
+#ifdef _WIN32
 #include <windows.h>
-#include <stdio.h>
+#include <tlhelp32.h>
 #include <tchar.h>
 #include <direct.h>
-
+#endif
+#include <stdio.h>
 #include "view_shared.h"
 #include "materialsystem/imesh.h"
 
 void ForceTerminateCompilers()
 {
+// Disabled on POSIX
+#ifdef _WIN32
 	PROCESSENTRY32 entry;
 	entry.dwSize = sizeof(PROCESSENTRY32);
 
@@ -52,6 +53,7 @@ void ForceTerminateCompilers()
 	}
 
 	CloseHandle(snapshot);
+#endif
 }
 
 
@@ -100,13 +102,13 @@ ShaderEditorInterface::~ShaderEditorInterface()
 
 using namespace vgui;
 
-#include "vgui_controls/controls.h"
-#include "vgui_controls/panel.h"
-#include "vgui_controls/animationcontroller.h"
-#include <vgui/isurface.h>
+#include "vgui_controls/Controls.h"
+#include "vgui_controls/Panel.h"
+#include "vgui_controls/AnimationController.h"
+#include <vgui/ISurface.h>
 #include <vgui/IVGui.h>
 #include <vgui/IInput.h>
-#include "vgui/ipanel.h"
+#include "vgui/IPanel.h"
 
 CViewSetup_SEdit_Shared _MainView;
 

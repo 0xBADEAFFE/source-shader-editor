@@ -4,13 +4,13 @@
 //
 //=============================================================================
 #include "vgui/IVGui.h"
-#include "vgui_controls/Controls.h"
+#include "vgui_controls/controls.h"
 
-#include "vgui_controls/AnimatingImagePanel.h"
-#include "vgui_controls/BitmapImagePanel.h"
-#include "vgui_controls/ExpandButton.h"
-#include "vgui_controls/TreeViewListControl.h"
-#include "vgui_controls/HTML.h"
+#include "vgui_controls/animatingimagepanel.h"
+#include "vgui_controls/bitmapimagepanel.h"
+#include "vgui_controls/expandbutton.h"
+#include "vgui_controls/treeviewlistcontrol.h"
+#include "vgui_controls/html.h"
 
 // NOTE: This has to be the last file included!
 #include "tier0/memdbgon.h"
@@ -18,7 +18,7 @@
 
 using namespace vgui;
 
-class CircularProgressBar;
+//class CircularProgressBar;
 
 USING_BUILD_FACTORY( Button );
 USING_BUILD_FACTORY( EditablePanel );

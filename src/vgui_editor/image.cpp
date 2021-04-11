@@ -9,8 +9,8 @@
 #include <vgui/IPanel.h>
 #include <vgui/ISurface.h>
 
-#include <vgui_controls/Image.h>
-#include <vgui_controls/Controls.h>
+#include <vgui_controls/image.h>
+#include <vgui_controls/controls.h>
 
 // memdbgon must be the last include file in a .cpp file!!!
 #include "tier0/memdbgon.h"
@@ -279,4 +279,3 @@ HTexture Image::GetID()
 {
 	return 0;
 }
-

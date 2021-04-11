@@ -32,7 +32,7 @@ $Project
 
 	$Folder	"Link Libraries" [$CLANG]
 	{
-		$File	"$SRCDIR/thirdparty/gperftools-2.0/.libs/libtcmalloc_minimal.so"
+		$ImpLib	"libtcmalloc_minimal"
 	}
 }
 

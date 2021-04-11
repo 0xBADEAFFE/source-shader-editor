@@ -4,10 +4,10 @@
 #include "filesystem.h"
 #else
 #include "procshader/shaderincludes.h"
-#include "ProcShaderInterface.h"
+#include "procshaderinterface.h"
 #endif
 
-#include "IVProcShader.h"
+#include "ivprocshader.h"
 
 #ifndef AllocCheck_Alloc
 #define AllocCheck_Alloc() ((void)NULL)
@@ -164,7 +164,12 @@ void ShaderNameToSwarmUnique( char *pBuf, int maxLen )
 
 BasicShaderCfg_t::BasicShaderCfg_t()
 {
+#ifdef _WIN32
 	iShaderModel = SM_30;
+#else // POSIX
+	// Force SM 2.0b on Posix
+	iShaderModel = SM_20B;
+#endif // POSIX
 	iCullmode = CULLMODE_CW;
 	iAlphablendmode = ABLEND_NONE;
 	flAlphaTestRef = 0.5f;
