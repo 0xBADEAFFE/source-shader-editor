@@ -99,18 +99,18 @@ bool ShaderEditorHandler::Init()
 
 		if ( !shaderEdit )
 		{
-			Warning( "[SSE]: Unable to pull IVShaderEditor interface.\n" );
+			Warning( "[Shader Editor]: Unable to pull IVShaderEditor interface.\n" );
 		}
 		else if ( !shaderEdit->Init( factories.appSystemFactory, gpGlobals, sEditMRender,
 				bCreateEditor, bShowPrimDebug, iEnableSkymask ) )
 		{
-			Warning( "[SSE]: Cannot initialize IVShaderEditor.\n" );
+			Warning( "[Shader Editor]: Cannot initialize IVShaderEditor.\n" );
 			shaderEdit = NULL;
 		}
 	}
 	else
 	{
-		Warning( "[SSE]: Cannot load shadereditor" DLL_EXT_STRING "from %s!\n", modulePath );
+		Warning( "[Shader Editor]: Cannot load shadereditor" DLL_EXT_STRING "from %s!\n", modulePath );
 	}
 
 	m_bReady = shaderEdit != NULL;
@@ -130,14 +130,14 @@ bool ShaderEditorHandler::Init()
 CON_COMMAND( sedit_debug_toggle_ppe, "" )
 {
 	if ( !g_ShaderEditorSystem->IsReady() )
-		return Warning( "[SSE]: Lib not ready.\n" );
+		return Warning( "[Shader Editor]: Lib not ready.\n" );
 
 	if ( args.ArgC() < 2 )
 		return;
 
 	const int idx = shaderEdit->GetPPEIndex( args[1] );
 	if ( idx < 0 )
-		return Warning( "[SSE]: Can't find ppe named: %s\n", args[1] );
+		return Warning( "[Shader Editor]: Can't find ppe named: %s\n", args[1] );
 
 	shaderEdit->SetPPEEnabled( idx, !shaderEdit->IsPPEEnabled( idx ) );
 }
@@ -776,7 +776,7 @@ protected:
 				pRenderContext->PushCustomClipPlane( pRenderClipPlane );
 #if DEBUG
 			else
-				AssertMsg( 0, "[SSE]: Can't link DrawClippedDepthBox externally so you either have to cope with even more redundancy or move all this crap to viewrender." );
+				AssertMsg( 0, "[Shader Editor]: Can't link DrawClippedDepthBox externally so you either have to cope with even more redundancy or move all this crap to viewrender." );
 #endif
 			//	DrawClippedDepthBox( pEnt, pRenderClipPlane );
 			Assert( view->GetCurrentlyDrawingEntity() == NULL );
@@ -856,7 +856,7 @@ protected:
 				pRenderContext->PushCustomClipPlane( pRenderClipPlane );
 #if DEBUG
 			else
-				AssertMsg( 0, "[SSE]: Can't link DrawClippedDepthBox externally so you either have to cope with even more redundancy or move all this crap to viewrender." );
+				AssertMsg( 0, "[Shader Editor]: Can't link DrawClippedDepthBox externally so you either have to cope with even more redundancy or move all this crap to viewrender." );
 #endif
 			//	DrawClippedDepthBox( pEnt, pRenderClipPlane );
 			Assert( view->GetCurrentlyDrawingEntity() == NULL );

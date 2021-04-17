@@ -472,7 +472,7 @@ void CCompileThread::WriteFXCFile_VS(bool bPosOverride, CUtlBufferEditor *codeBu
 {
 	char targetFile[MAX_PATH];
 	ComposeShaderPath( _shaderData, false, true, targetFile, MAX_PATH, bPosOverride );
-	//Msg( "writing VS: %s\n", targetFile );
+	//Msg( "[Shader Editor]: writing VS: %s\n", targetFile );
 
 	CUtlBufferEditor buf;
 	buf.SetBufferType( true, true );
@@ -496,7 +496,7 @@ void CCompileThread::WriteFXCFile_PS(CUtlBufferEditor *codeBuff)
 {
 	char targetFile[MAX_PATH];
 	ComposeShaderPath( _shaderData, true, true, targetFile, MAX_PATH );
-	//Msg( "writing PS: %s\n", targetFile );
+	//Msg( "[Shader Editor]: writing PS: %s\n", targetFile );
 
 	CUtlBufferEditor buf;
 	buf.SetBufferType( true, true );
@@ -957,7 +957,7 @@ void CCompileThread::WriteFileLists(int activefiles, CUtlBufferEditor *codeBuff)
 								*findWordEnd == '_' || *findWordEnd == '.' )
 								findWordEnd++;
 
-							AssertMsg( findWordEnd > read, "include string with no length?" );
+							AssertMsg( findWordEnd > read, "[Shader Editor]: include string with no length?" );
 
 							buf_1.Put( read, findWordEnd - read );
 							buf_1.PutString( "\n" );
@@ -1048,7 +1048,7 @@ bool CCompileThread::StartCompiler()
 	siStartInfo.hStdOutput = g_hChildStd_OUT_Wr;
 	siStartInfo.dwFlags |= STARTF_USESTDHANDLES;
 	siStartInfo.wShowWindow = SW_HIDE;
-	//Msg("commandline: %s\n", szCmdline);
+	//Msg("[Shader Editor]: commandline: %s\n", szCmdline);
 	bSuccess = CreateProcess(NULL, 
 		szCmdline,     // command line 
 		NULL,          // process security attributes 
@@ -1140,7 +1140,7 @@ bool CCompileThread::StartCompiler()
 	//chdir( old_wd );
 	return true;
 #else // POSIX
-	Msg("[SSE]: Compiling is not possible on Posix!\n");
+	Msg("[Shader Editor]: Compiling is not possible on Posix!\n");
 	return false;
 #endif // POSIX
 }

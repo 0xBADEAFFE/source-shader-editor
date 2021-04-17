@@ -19,9 +19,11 @@ inline bool V_isalnum(char c) { return isalnum( (unsigned char)c ) != 0; }
 #define clamp( val, min, max ) ( ((val) > (max)) ? (max) : ( ((val) < (min)) ? (min) : (val) ) )
 #endif
 
-// for SWARM etc
+// For SWARM etc
+#ifdef SHADER_EDITOR_DLL_SWARM
 #ifndef INVALID_LOCALIZE_STRING_INDEX
 #define INVALID_LOCALIZE_STRING_INDEX INVALID_STRING_INDEX
+#endif
 #endif
 
 #ifndef V_isalnum
