@@ -55,7 +55,7 @@ $Configuration
 	
 	$PreBuildEvent
 	{
-		$CommandLine		"if EXIST $OUTBINDIR\$(TargetFileName) for /f $QUOTEdelims=$QUOTE %%A in ('attrib $QUOTE$OUTBINDIR\$(TargetFileName)$QUOTE') do set valveTmpIsReadOnly=$QUOTE%%A$QUOTE" "\n" \
+		$CommandLine		"if EXIST $QUOTE$OUTBINDIR\$(TargetFileName)$QUOTE for /f $QUOTEdelims=$QUOTE %%A in ('attrib $QUOTE$OUTBINDIR\$(TargetFileName)$QUOTE') do set valveTmpIsReadOnly=$QUOTE%%A$QUOTE" "\n" \
 							"set valveTmpIsReadOnlyLetter=%valveTmpIsReadOnly:~6,1%" "\n" \
 							"if $QUOTE%valveTmpIsReadOnlyLetter%$QUOTE==$QUOTER$QUOTE del /q $QUOTE$(TargetDir)(TargetFileName)$QUOTE$" "\n" \
 							"$CRCCHECK" "\n"
@@ -64,11 +64,11 @@ $Configuration
 	$PostBuildEvent [!$ANALYZE]
 	{
 		$CommandLine		"if not exist $QUOTE$OUTBINDIR$QUOTE mkdir $QUOTE$OUTBINDIR$QUOTE" "\n" 
-		$CommandLine		"$BASE" "call $QUOTE$$SRCDIR\vpc_scripts\valve_p4_edit.cmd$QUOTE$ $QUOTE$OUTBINDIR\$(TargetFileName)$QUOTE $QUOTE$$SRCDIR$QUOTE$" "\n" [!$SOURCESDK]
+		$CommandLine		"$BASE" "call $QUOTE$SRCDIR\vpc_scripts\valve_p4_edit.cmd$QUOTE $QUOTE$OUTBINDIR\$(TargetFileName)$QUOTE $QUOTE$SRCDIR$QUOTE" "\n" [!$SOURCESDK]
 		$CommandLine		"$BASE" "copy $QUOTE$(TargetDir)$(TargetFileName)$QUOTE $QUOTE$OUTBINDIR\$(TargetFileName)$QUOTE" "\n" \
 							"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
-							"if exist $QUOTE$(TargetDir)$(TargetName).map$QUOTE copy $QUOTE$(TargetDir)$(TargetName).map$QUOTE $QUOTE$$OUTBINDIR\$(TargetName).map$QUOTE$" "\n" 
-		$CommandLine		"$BASE" "call $QUOTE$$SRCDIR\vpc_scripts\valve_p4_edit.cmd$QUOTE$ $QUOTE$OUTBINDIR\$(TargetName).pdb$QUOTE $QUOTE$$SRCDIR$QUOTE$" "\n"  [!$SOURCESDK] 
+							"if exist $QUOTE$(TargetDir)$(TargetName).map$QUOTE copy $QUOTE$(TargetDir)$(TargetName).map$QUOTE $QUOTE$OUTBINDIR\$(TargetName).map$QUOTE" "\n" 
+		$CommandLine		"$BASE" "call $QUOTE$SRCDIR\vpc_scripts\valve_p4_edit.cmd$QUOTE $QUOTE$OUTBINDIR\$(TargetName).pdb$QUOTE $QUOTE$SRCDIR$QUOTE" "\n"  [!$SOURCESDK] 
 		$CommandLine		"$BASE" "copy $QUOTE$(TargetDir)$(TargetName).pdb$QUOTE $QUOTE$OUTBINDIR\$(TargetName).pdb$QUOTE" "\n" \
 							"if ERRORLEVEL 1 goto BuildEventFailed" "\n" \
 							"goto BuildEventOK" "\n" \
@@ -79,10 +79,10 @@ $Configuration
 							":BuildEventOK" "\n" 
 
 		$CommandLine		"$BASE" "\n" \
-							"call $QUOTE$$SRCDIR\devtools\bin\vsign.bat$QUOTE$ -sign $QUOTE$$OUTBINDIR\$(TargetFileName)$QUOTE$" "\n" [$RETAIL && $PUBLISH]
+							"call $QUOTE$SRCDIR\devtools\bin\vsign.bat$QUOTE -sign $QUOTE$OUTBINDIR\$(TargetFileName)$QUOTE" "\n" [$RETAIL && $PUBLISH]
 
 		$CommandLine		"$BASE" "\n" \
-							"call $QUOTE$$SRCDIR\devtools\bin\vsign.bat$QUOTE$ -signvalve $QUOTE$$OUTBINDIR\$(TargetFileName)$QUOTE$" "\n" [!$RETAIL && !$PUBLISH && !$SOURCESDK]
+							"call $QUOTE$SRCDIR\devtools\bin\vsign.bat$QUOTE -signvalve $QUOTE$OUTBINDIR\$(TargetFileName)$QUOTE" "\n" [!$RETAIL && !$PUBLISH && !$SOURCESDK]
 
 		$Description		"Publishing to $OUTBINDIR"
 		$ExcludedFromBuild	"No"
